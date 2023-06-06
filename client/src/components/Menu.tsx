@@ -1,8 +1,6 @@
-import { Link } from "react-router-dom";
-
 type Props = {};
 
-const Home = ({}: Props) => {
+const Menu = ({}: Props) => {
   const posts = [
     {
       id: 1,
@@ -31,25 +29,17 @@ const Home = ({}: Props) => {
   ];
 
   return (
-    <div className="home">
-      <div className="posts">
-        {posts.map((post) => (
-          <div key={post.id} className="post">
-            <div className="img-wrapper">
-              <img src={post.img} alt="" />
-            </div>
-            <div className="content">
-              <Link to={`/post/${post.id}`} className="link">
-                <h1>{post.title}</h1>
-              </Link>
-              <p>{post.desc}</p>
-              <button>Read More</button>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="menu">
+      <h1>Other posts you may like</h1>
+      {posts.map(post => (
+        <div key={post.id} className="post">
+          <img src={post.img} alt="" />
+          <h2>{post.title}</h2>
+          <button>Read More</button>
+        </div>
+      ))}
     </div>
   );
 };
 
-export default Home;
+export default Menu;
